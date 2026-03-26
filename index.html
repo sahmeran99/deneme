@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KimKiminle.com – Türk Ünlülerin Aşk Hayatı</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--pink-hot: #FF1493;
+--pink-soft: #FF69B4;
+--pink-pale: #FFB6C1;
+--pink-blush: #FFF0F5;
+--pink-light: #FFE4EF;
+--gold: #D4AF37;
+--dark: #1a0a12;
+--text: #2d1020;
+--gray: #8a7080;
+--white: #ffffff;
+}
+ 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+body {
+font-family: 'DM Sans', sans-serif;
+background: var(--pink-blush);
+color: var(--text);
+min-height: 100vh;
+}
+ 
+/* ─── HEADER ─── */
+header {
+background: linear-gradient(135deg, #ff1493 0%, #ff6eb4 50%, #ff1493 100%);
+background-size: 200% 200%;
+animation: gradAnim 4s ease infinite;
+padding: 0 2rem;
+position: sticky; top: 0; z-index: 999;
+box-shadow: 0 4px 30px rgba(255,20,147,0.4);
+}
+@keyframes gradAnim {
+0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
+}
+.header-inner {
+max-width: 1200px; margin: 0 auto;
+display: flex; align-items: center; justify-content: space-between;
+height: 70px;
+}
+.logo {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem; font-weight: 900; color: white;
+text-decoration: none; letter-spacing: -0.5px;
+text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+cursor: pointer;
+}
+.logo span { color: #FFE4EF; }
+nav { display: flex; gap: 0.3rem; }
+nav button {
+background: rgba(255,255,255,0.15);
+border: none; color: white;
+padding: 0.5rem 1rem; border-radius: 20px;
+font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500;
+cursor: pointer; transition: all 0.2s;
+}
+nav button:hover { background: rgba(255,255,255,0.3); }
+nav button.active { background: white; color: var(--pink-hot); font-weight: 600; }
+.search-bar {
+display: flex; align-items: center;
+background: rgba(255,255,255,0.2);
+border-radius: 25px; padding: 0.4rem 1rem;
+gap: 0.5rem;
+}
+.search-bar input {
+background: none; border: none; outline: none;
+color: white; font-family: 'DM Sans', sans-serif;
+font-size: 0.9rem; width: 180px;
+}
+.search-bar input::placeholder { color: rgba(255,255,255,0.7); }
+.search-bar svg { color: white; opacity: 0.8; }
+ 
+/* ─── HERO BANNER ─── */
+.hero {
+background: linear-gradient(160deg, #ff1493 0%, #ff85c2 60%, #FFB6C1 100%);
+padding: 3rem 2rem;
+text-align: center;
+position: relative; overflow: hidden;
+}
+.hero::before {
+content: '💕'; font-size: 8rem; position: absolute;
+top: -20px; left: -20px; opacity: 0.08;
+animation: float 6s ease-in-out infinite;
+}
+.hero::after {
+content: '💋'; font-size: 7rem; position: absolute;
+bottom: -10px; right: 30px; opacity: 0.08;
+animation: float 8s ease-in-out infinite reverse;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+.hero h1 {
+font-family: 'Playfair Display', serif;
+font-size: 2.8rem; color: white; font-weight: 900;
+text-shadow: 0 3px 20px rgba(0,0,0,0.2);
+margin-bottom: 0.5rem;
+}
+.hero p { color: rgba(255,255,255,0.85); font-size: 1.1rem; }
+.hero-stats {
+display: flex; justify-content: center; gap: 3rem;
+margin-top: 1.5rem;
+}
+.hero-stats div { color: white; text-align: center; }
+.hero-stats strong { display: block; font-size: 1.8rem; font-weight: 700; }
+.hero-stats span { font-size: 0.8rem; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+ 
+/* ─── MAIN LAYOUT ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.main-grid {
+display: grid;
+grid-template-columns: 1fr 300px;
+gap: 2rem;
+padding: 2rem 0;
+}
+ 
+/* ─── SECTION TITLES ─── */
+.section-title {
+font-family: 'Playfair Display', serif;
+font-size: 1.4rem; font-weight: 700; color: var(--pink-hot);
+display: flex; align-items: center; gap: 0.5rem;
+margin-bottom: 1.2rem;
+padding-bottom: 0.5rem;
+border-bottom: 2px solid var(--pink-pale);
+}
+.section-title::before { content: ''; display: block; width: 4px; height: 1.4rem; background: var(--pink-hot); border-radius: 2px; }
+ 
+/* ─── CATEGORY TABS ─── */
+.cat-tabs {
+display: flex; gap: 0.5rem; flex-wrap: wrap;
+margin-bottom: 1.5rem;
+}
+.cat-tab {
+padding: 0.5rem 1.2rem; border-radius: 25px;
+border: 2px solid var(--pink-pale);
+background: white; color: var(--gray);
+font-size: 0.85rem; font-weight: 500;
+cursor: pointer; transition: all 0.2s;
+font-family: 'DM Sans', sans-serif;
+}
+.cat-tab:hover { border-color: var(--pink-hot); color: var(--pink-hot); }
+.cat-tab.active {
+background: var(--pink-hot); border-color: var(--pink-hot);
+color: white;
+}
+ 
+/* ─── CELEB CARDS ─── */
+.celebs-grid {
+display: grid; grid-template-columns: repeat(3, 1fr);
+gap: 1rem;
+}
+.celeb-card {
+background: white; border-radius: 16px;
+overflow: hidden;
+box-shadow: 0 2px 15px rgba(255,20,147,0.08);
+transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+cursor: pointer; position: relative;
+}
+.celeb-card:hover {
+transform: translateY(-6px) scale(1.01);
+box-shadow: 0 15px 40px rgba(255,20,147,0.2);
+}
+.celeb-card:hover .card-overlay { opacity: 1; }
+.card-img {
+width: 100%; aspect-ratio: 3/4; object-fit: cover;
+background: linear-gradient(135deg, var(--pink-light), var(--pink-pale));
+display: flex; align-items: center; justify-content: center;
+font-size: 4rem; position: relative;
+}
+.card-overlay {
+position: absolute; inset: 0;
+background: linear-gradient(to top, rgba(255,20,147,0.9), transparent);
+display: flex; align-items: flex-end; justify-content: center;
+padding: 1rem; opacity: 0; transition: opacity 0.3s;
+color: white; font-size: 0.85rem; font-weight: 600;
+}
+.card-body { padding: 0.9rem; }
+.card-name {
+font-family: 'Playfair Display', serif;
+font-size: 1rem; font-weight: 700; color: var(--text);
+margin-bottom: 0.2rem;
+}
+.card-meta { font-size: 0.75rem; color: var(--gray); display: flex; gap: 0.5rem; align-items: center; }
+.card-cat {
+background: var(--pink-light); color: var(--pink-hot);
+border-radius: 10px; padding: 0.1rem 0.5rem;
+font-size: 0.7rem; font-weight: 600;
+}
+.card-heart { color: var(--pink-hot); font-size: 0.75rem; }
+.new-badge {
+position: absolute; top: 8px; left: 8px;
+background: var(--pink-hot); color: white;
+font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.5rem;
+border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+ 
+/* ─── SIDEBAR ─── */
+.sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.sidebar-card {
+background: white; border-radius: 16px;
+padding: 1.2rem;
+box-shadow: 0 2px 15px rgba(255,20,147,0.08);
+}
+.trending-list { display: flex; flex-direction: column; gap: 0.7rem; }
+.trending-item {
+display: flex; align-items: center; gap: 0.8rem;
+padding: 0.5rem; border-radius: 10px;
+cursor: pointer; transition: background 0.2s;
+}
+.trending-item:hover { background: var(--pink-blush); }
+.trend-num {
+width: 24px; height: 24px; border-radius: 50%;
+background: var(--pink-light); color: var(--pink-hot);
+font-size: 0.75rem; font-weight: 700;
+display: flex; align-items: center; justify-content: center;
+flex-shrink: 0;
+}
+.trend-num.gold { background: #FFF3CD; color: var(--gold); }
+.trend-info { flex: 1; }
+.trend-name { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+.trend-sub { font-size: 0.72rem; color: var(--gray); }
+.trend-emoji { font-size: 1.2rem; }
+ 
+/* ─── COUPLE NEWS ─── */
+.couple-news { display: flex; flex-direction: column; gap: 0.8rem; }
+.news-item {
+display: flex; gap: 0.8rem; align-items: center;
+padding: 0.7rem; border-radius: 10px;
+border: 1px solid var(--pink-pale);
+cursor: pointer; transition: all 0.2s;
+}
+.news-item:hover { border-color: var(--pink-hot); background: var(--pink-blush); }
+.news-hearts { font-size: 1.5rem; }
+.news-text { flex: 1; }
+.news-title { font-size: 0.82rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.news-date { font-size: 0.7rem; color: var(--gray); margin-top: 0.2rem; }
+ 
+/* ─── PROFILE PAGE ─── */
+#profile-page { display: none; }
+.profile-hero {
+background: linear-gradient(160deg, #FF1493 0%, #ff85c2 100%);
+padding: 2rem;
+position: relative;
+}
+.profile-hero-inner {
+max-width: 1200px; margin: 0 auto;
+display: flex; gap: 2rem; align-items: flex-end;
+}
+.profile-avatar {
+width: 150px; height: 150px; border-radius: 50%;
+border: 5px solid white;
+background: var(--pink-light);
+display: flex; align-items: center; justify-content: center;
+font-size: 4.5rem; flex-shrink: 0;
+box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+.profile-info { color: white; flex: 1; }
+.profile-name {
+font-family: 'Playfair Display', serif;
+font-size: 2.5rem; font-weight: 900;
+text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.profile-tags { display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
+.profile-tag {
+background: rgba(255,255,255,0.2); color: white;
+padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;
+}
+.profile-stats-row {
+display: flex; gap: 2rem; margin-top: 1rem;
+}
+.profile-stat { text-align: center; }
+.profile-stat strong { display: block; font-size: 1.5rem; font-weight: 700; }
+.profile-stat span { font-size: 0.75rem; opacity: 0.85; }
+.back-btn {
+position: absolute; top: 1rem; left: 1rem;
+background: rgba(255,255,255,0.2); border: none;
+color: white; padding: 0.5rem 1rem; border-radius: 20px;
+cursor: pointer; font-family: 'DM Sans', sans-serif;
+font-size: 0.85rem; display: flex; align-items: center; gap: 0.4rem;
+transition: background 0.2s;
+}
+.back-btn:hover { background: rgba(255,255,255,0.35); }
+ 
+/* ─── PROFILE CONTENT ─── */
+.profile-content {
+max-width: 1200px; margin: 0 auto;
+display: grid; grid-template-columns: 1fr 320px;
+gap: 2rem; padding: 2rem 1.5rem;
+}
+.profile-section {
+background: white; border-radius: 16px;
+padding: 1.5rem; margin-bottom: 1.5rem;
+box-shadow: 0 2px 15px rgba(255,20,147,0.07);
+}
+.relation-timeline { display: flex; flex-direction: column; gap: 1.2rem; }
+.relation-item {
+display: flex; gap: 1rem; align-items: flex-start;
+padding: 1rem; border-radius: 12px;
+border: 1px solid var(--pink-pale);
+transition: all 0.2s; cursor: pointer;
+}
+.relation-item:hover { border-color: var(--pink-hot); background: var(--pink-blush); }
+.relation-item.current {
+border-color: var(--pink-hot);
+background: linear-gradient(135deg, #fff0f5, #ffe4ef);
+}
+.relation-avatar {
+width: 60px; height: 60px; border-radius: 50%;
+background: var(--pink-light);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.8rem; flex-shrink: 0;
+}
+.relation-info { flex: 1; }
+.relation-name {
+font-family: 'Playfair Display', serif;
+font-size: 1.05rem; font-weight: 700; color: var(--text);
+}
+.relation-period { font-size: 0.8rem; color: var(--gray); margin: 0.2rem 0; }
+.relation-status {
+display: inline-block;
+padding: 0.2rem 0.7rem; border-radius: 10px;
+font-size: 0.72rem; font-weight: 600;
+}
+.status-current { background: #d4edda; color: #155724; }
+.status-ex { background: var(--pink-light); color: var(--pink-hot); }
+.status-rumor { background: #fff3cd; color: #856404; }
+ 
+.info-grid {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+.info-item { }
+.info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); font-weight: 600; }
+.info-value { font-size: 0.95rem; color: var(--text); font-weight: 500; margin-top: 0.2rem; }
+ 
+/* ─── FOOTER ─── */
+footer {
+background: var(--dark); color: rgba(255,255,255,0.6);
+text-align: center; padding: 2rem;
+font-size: 0.8rem; margin-top: 3rem;
+}
+footer strong { color: var(--pink-soft); }
+ 
+/* ─── SPARKLE ANIMATION ─── */
+.sparkle {
+display: inline-block;
+animation: sparkle 1.5s ease-in-out infinite;
+}
+@keyframes sparkle {
+0%,100%{transform:scale(1) rotate(0)} 50%{transform:scale(1.2) rotate(10deg)}
+}
+ 
+/* ─── PAGE TRANSITIONS ─── */
+.page { animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+ 
+/* ─── RESPONSIVE ─── */
+@media(max-width: 900px) {
+.celebs-grid { grid-template-columns: repeat(2, 1fr); }
+.main-grid { grid-template-columns: 1fr; }
+.profile-content { grid-template-columns: 1fr; }
+nav { display: none; }
+.hero h1 { font-size: 1.8rem; }
+.profile-name { font-size: 1.6rem; }
+.profile-avatar { width: 100px; height: 100px; font-size: 3rem; }
+}
+@media(max-width: 560px) {
+.celebs-grid { grid-template-columns: repeat(2,1fr); }
+.info-grid { grid-template-columns: 1fr; }
+}
+ 
+.pink-pill {
+display: inline-block;
+background: var(--pink-light); color: var(--pink-hot);
+padding: 0.25rem 0.8rem; border-radius: 20px;
+font-size: 0.78rem; font-weight: 600;
+}
+</style>
+</head>
+<body>
+ 
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header>
+<div class="header-inner">
+<a class="logo" onclick="showHome()" href="javascript:void(0)">Kim<span>Kiminle</span>.com</a>
+<nav>
+<button class="active" onclick="filterCat('tümü',this)">Tümü</button>
+<button onclick="filterCat('oyuncu',this)">🎬 Oyuncular</button>
+<button onclick="filterCat('müzisyen',this)">🎵 Müzisyenler</button>
+<button onclick="filterCat('sporcu',this)">⚽ Sporcular</button>
+<button onclick="filterCat('fenomen',this)">📱 Fenomenler</button>
+</nav>
+<div class="search-bar">
+<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+<input type="text" placeholder="Ünlü ara..." oninput="searchCelebs(this.value)">
+</div>
+</div>
+</header>
+ 
+<!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+<div id="home-page" class="page">
+ 
+<!-- Hero -->
+<div class="hero">
+<h1>💕 Kim Kiminle Beraberdi?</h1>
+<p>Türkiye'nin en kapsamlı ünlü ilişkileri veritabanı</p>
+<div class="hero-stats">
+<div><strong>250+</strong><span>Ünlü Profili</span></div>
+<div><strong>480+</strong><span>İlişki Kaydı</span></div>
+<div><strong>12K+</strong><span>Aylık Ziyaretçi</span></div>
+</div>
+</div>
+ 
+<div class="container">
+<div class="main-grid">
+<!-- LEFT: Celeb Grid -->
+<div>
+<div class="cat-tabs" id="cat-tabs">
+<button class="cat-tab active" onclick="filterCat('tümü',this)">🌟 Tümü</button>
+<button class="cat-tab" onclick="filterCat('oyuncu',this)">🎬 Dizi & Film</button>
+<button class="cat-tab" onclick="filterCat('müzisyen',this)">🎵 Müzisyen</button>
+<button class="cat-tab" onclick="filterCat('sporcu',this)">⚽ Sporcu</button>
+<button class="cat-tab" onclick="filterCat('fenomen',this)">📱 Fenomen</button>
+</div>
+ 
+<div class="section-title">Tüm Profiller</div>
+<div class="celebs-grid" id="celebs-grid"></div>
+</div>
+ 
+<!-- RIGHT: Sidebar -->
+<div class="sidebar">
+<div class="sidebar-card">
+<div class="section-title">🔥 Bu Hafta Trend</div>
+<div class="trending-list" id="trending-list"></div>
+</div>
+ 
+<div class="sidebar-card">
+<div class="section-title">💌 Son Haberler</div>
+<div class="couple-news" id="couple-news"></div>
+</div>
+ 
+<div class="sidebar-card" style="background:linear-gradient(135deg,#FF1493,#ff85c2);color:white;">
+<div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">💡 Biliyor muydunuz?</div>
+<p style="font-size:0.85rem;opacity:0.9;line-height:1.6;" id="fun-fact"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+<!-- ═══════════════════ PROFILE PAGE ═══════════════════ -->
+<div id="profile-page" class="page">
+<div class="profile-hero">
+<button class="back-btn" onclick="showHome()">← Geri Dön</button>
+<div class="profile-hero-inner">
+<div class="profile-avatar" id="p-avatar"></div>
+<div class="profile-info">
+<div class="profile-name" id="p-name"></div>
+<div class="profile-tags" id="p-tags"></div>
+<div class="profile-stats-row">
+<div class="profile-stat"><strong id="p-rel-count">0</strong><span>İlişki</span></div>
+<div class="profile-stat"><strong id="p-age">-</strong><span>Yaş</span></div>
+<div class="profile-stat"><strong id="p-fame">⭐</�strong><span>Popülerlik</span></div>
+</div>
+</div>
+</div>
+</div>
+ 
+<div class="profile-content">
+<div>
+<!-- Bio -->
+<div class="profile-section">
+<div class="section-title">Hakkında</div>
+<p style="font-size:0.92rem;color:#555;line-height:1.7;" id="p-bio"></p>
+<div class="info-grid" style="margin-top:1.2rem;" id="p-info-grid"></div>
+</div>
+ 
+<!-- Relationships -->
+<div class="profile-section">
+<div class="section-title">💞 İlişki Geçmişi</div>
+<div class="relation-timeline" id="p-relations"></div>
+</div>
+</div>
+ 
+<div>
+<!-- Quick stats sidebar -->
+<div class="profile-section">
+<div class="section-title">📊 İstatistikler</div>
+<div id="p-stats-sidebar"></div>
+</div>
+<div class="profile-section">
+<div class="section-title">🔗 Benzer Profiller</div>
+<div id="p-similar"></div>
+</div>
+</div>
+</div>
+</div>
+ 
+<footer>
+<strong>KimKiminle.com</strong> &copy; 2025 · Türkiye'nin ünlü ilişkileri arşivi<br>
+<span style="font-size:0.72rem;opacity:0.5;margin-top:0.3rem;display:block;">Bu site eğlence amaçlıdır. Bilgiler kamuya açık kaynaklardan derlenmektedir.</span>
+</footer>
+ 
+<script>
+// ═══════════════════════════════════════════════
+// DATA – Tüm veriler JSON olarak burada (SQL yok)
+// ═══════════════════════════════════════════════
+const celebs = [
+{
+id: 1, emoji: "👩", name: "Hande Erçel", cat: "oyuncu",
+age: 31, fame: "⭐⭐⭐⭐⭐", isNew: true,
+tags: ["Oyuncu", "Model", "Influencer"],
+bio: "1993 yılında Bandırma'da doğan Hande Erçel, Türkiye'nin en tanınan genç oyuncularından biridir. 'Siyah İnci', 'Halka' ve 'Sen Çal Kapımı' gibi yapımlarla adını duyurdu. Aynı zamanda başarılı bir model ve milyonlarca takipçiye sahip bir sosyal medya fenomenidir.",
+info: { "Doğum Tarihi": "24 Kasım 1993", "Doğum Yeri": "Bandırma", "Boy": "1.71 m", "Burç": "Yay", "Meslek": "Oyuncu, Model", "Instagram": "@handemiyy" },
+relations: [
+{ name: "Kerem Bürsin", emoji: "👨", period: "2020 – Günümüz", status: "current", note: "Sen Çal Kapımı setinde başlayan bu aşk tüm Türkiye'yi heyecanlandırdı." },
+{ name: "Murat Dalkılıç", emoji: "🎸", period: "2017 – 2019", status: "ex", note: "Uzun süreli bir ilişki yaşadılar ancak 2019'da ayrıldılar." },
+]
+},
+{
+id: 2, emoji: "👨", name: "Çağatay Ulusoy", cat: "oyuncu",
+age: 34, fame: "⭐⭐⭐⭐⭐",
+tags: ["Oyuncu", "Model"],
+bio: "1990 doğumlu Çağatay Ulusoy, 2012 yılında Best Model of Turkey yarışmasını kazanarak sektöre adım attı. 'Medcezir', 'Delibal' ve Netflix yapımı 'The Protector' ile uluslararası üne kavuştu. Hem televizyon hem sinema hem de streaming platformlarında başarılı projeler imzaladı.",
+info: { "Doğum Tarihi": "23 Eylül 1990", "Doğum Yeri": "İstanbul", "Boy": "1.88 m", "Burç": "Terazi", "Meslek": "Oyuncu", "Eğitim": "ODTÜ" },
+relations: [
+{ name: "Duygu Sarışın", emoji: "👩", period: "2016 – Günümüz", status: "current", note: "Çiftin 2021 yılında nişanlandığı haberi gündem oldu." },
+{ name: "Serenay Sarıkaya", emoji: "👩‍🦱", period: "2013 – 2016", status: "ex", note: "Medcezir setinde başlayan ilişkileri 3 yıl sürdü." },
+]
+},
+{
+id: 3, emoji: "🎤", name: "Tarkan", cat: "müzisyen",
+age: 51, fame: "⭐⭐⭐⭐⭐",
+tags: ["Şarkıcı", "Pop Yıldızı"],
+bio: "1972 doğumlu Tarkan, Türk pop müziğinin en ikonik isimlerinden biridir. 'Şımarık', 'Kuzu Kuzu' ve 'Uzun İnce Bir Yoldayım' gibi hitlerle dünya çapında tanındı. 30 yılı aşkın kariyerinde milyonlarca albüm sattı ve Türkiye'nin en çok tanınan müzisyeni unvanını koruyor.",
+info: { "Doğum Tarihi": "17 Ekim 1972", "Doğum Yeri": "Almanya", "Burç": "Terazi", "Meslek": "Şarkıcı, Söz Yazarı", "Albüm Sayısı": "9" },
+relations: [
+{ name: "Pınar Dilek", emoji: "👩", period: "2016 – Günümüz", status: "current", note: "2016 yılında evlenen çiftin Rüzgar isimli bir oğulları var." },
+{ name: "Süeda Altay", emoji: "👩", period: "2005 – 2008", status: "ex", note: "Uzun süreli birliktelik yaşadılar." },
+]
+},
+{
+id: 4, emoji: "⚽", name: "Arda Turan", cat: "sporcu",
+age: 37, fame: "⭐⭐⭐⭐⭐", isNew: false,
+tags: ["Futbolcu", "Teknik Direktör"],
+bio: "1987 doğumlu Arda Turan, Türk futbol tarihinin en parlak yıldızlarından biridir. Galatasaray ve Atletico Madrid'de göz dolduran performanslar sergiledi; Barcelona forması giyen nadir Türk futbolculardan biri oldu. Şu an teknik direktörlük kariyerine devam etmektedir.",
+info: { "Doğum Tarihi": "30 Ocak 1987", "Doğum Yeri": "İstanbul", "Boy": "1.78 m", "Burç": "Kova", "Pozisyon": "Orta Saha" },
+relations: [
+{ name: "Aslıhan Doğan", emoji: "👩‍🦰", period: "2016 – Günümüz", status: "current", note: "2016 yılında evlendiler, iki çocukları var." },
+{ name: "Sinem Kobal", emoji: "👩", period: "2011 – 2014", status: "ex", note: "3 yıl süren ilişkileri medyada büyük ilgi gördü." },
+]
+},
+{
+id: 5, emoji: "📱", name: "Danla Bilic", cat: "fenomen",
+age: 33, fame: "⭐⭐⭐⭐", isNew: true,
+tags: ["YouTuber", "Influencer", "Komedyen"],
+bio: "1991 doğumlu Danla Bilic, YouTube'da başladığı içerik üretimi kariyeriyle milyonlarca takipçiye ulaştı. Eğlenceli ve özgün içerikleriyle Türkiye'nin en sevilen dijital içerik üreticilerinden biri haline geldi. Aynı zamanda oyunculuk ve sunuculuk da yapıyor.",
+info: { "Doğum Tarihi": "25 Mart 1991", "Doğum Yeri": "İstanbul", "Meslek": "YouTuber, Oyuncu", "YouTube": "Danla Bilic", "Takipçi": "3M+" },
+relations: [
+{ name: "Can Aydın", emoji: "👨", period: "2019 – Günümüz", status: "current", note: "İlişkilerini sosyal medyada paylaşan çift büyük ilgi görüyor." },
+]
+},
+{
+id: 6, emoji: "👩‍🦱", name: "Serenay Sarıkaya", cat: "oyuncu",
+age: 33, fame: "⭐⭐⭐⭐⭐",
+tags: ["Oyuncu", "Model"],
+bio: "1992 doğumlu Serenay Sarıkaya, Best Model of Turkey 2010 birincisi olarak sektöre girdi. 'Medcezir', 'Aşk ve Mavi', 'Hakan: Muhafız' gibi yapımlarla hem ulusal hem uluslararası tanınırlık kazandı.",
+info: { "Doğum Tarihi": "1 Temmuz 1992", "Doğum Yeri": "Antalya", "Boy": "1.73 m", "Burç": "Yengeç", "Meslek": "Oyuncu, Model" },
+relations: [
+{ name: "Kerem Bürsin", emoji: "👨", period: "2019 – 2020", status: "rumor", note: "Birlikte görüntülendiler ancak resmi bir açıklama yapılmadı." },
+{ name: "Çağatay Ulusoy", emoji: "👨", period: "2013 – 2016", status: "ex", note: "Medcezir'de birlikte oynadılar, set aşkı olarak başladı." },
+]
+},
+{
+id: 7, emoji: "🎸", name: "Murat Dalkılıç", cat: "müzisyen",
+age: 36, fame: "⭐⭐⭐⭐",
+tags: ["Şarkıcı", "Pop"],
+bio: "1989 doğumlu Murat Dalkılıç, pop müzik dünyasında 'Seviyorum Seni', 'Gel Gel' gibi hitlerle yer edindi. Genç yaşta sektöre giren sanatçı birçok ödül ve başarıya imza attı.",
+info: { "Doğum Tarihi": "12 Mayıs 1989", "Doğum Yeri": "İzmir", "Burç": "Boğa", "Meslek": "Şarkıcı" },
+relations: [
+{ name: "Hande Erçel", emoji: "👩", period: "2017 – 2019", status: "ex", note: "Ayrılıkları sosyal medyada büyük gündem oluşturdu." },
+{ name: "Merve Boluğur", emoji: "👩", period: "2021 – 2022", status: "ex", note: "Kısa süreli bir beraberlik yaşadılar." },
+]
+},
+{
+id: 8, emoji: "🏊", name: "Merve Dinçel", cat: "sporcu",
+age: 28, fame: "⭐⭐⭐", isNew: true,
+tags: ["Yüzücü", "Milli Sporcu"],
+bio: "1997 doğumlu Merve Dinçel, Türk yüzme tarihinin en başarılı sporcularından biridir. Avrupa şampiyonalarında madalyalar kazanan sporcu, sosyal medyada da aktif olarak takip ediliyor.",
+info: { "Doğum Tarihi": "3 Ağustos 1997", "Doğum Yeri": "Ankara", "Boy": "1.72 m", "Branş": "Yüzme", "Kulüp": "Galatasaray" },
+relations: [
+{ name: "Ali Demir", emoji: "👨", period: "2022 – Günümüz", status: "current", note: "Spor dünyasından biri olan partnerini tanıştı." },
+]
+},
+{
+id: 9, emoji: "🎬", name: "Kerem Bürsin", cat: "oyuncu",
+age: 35, fame: "⭐⭐⭐⭐⭐",
+tags: ["Oyuncu", "Model"],
+bio: "1987 doğumlu Kerem Bürsin, 'Sen Çal Kapımı' ile tüm dünyada tanınan bir Türk oyuncusudur. Amerika'da eğitim alan oyuncu, uluslararası kariyer hedefliyor.",
+info: { "Doğum Tarihi": "4 Haziran 1987", "Doğum Yeri": "İstanbul", "Boy": "1.87 m", "Burç": "İkizler", "Eğitim": "ABD" },
+relations: [
+{ name: "Hande Erçel", emoji: "👩", period: "2020 – Günümüz", status: "current", note: "Hande Erçel ile Sen Çal Kapımı setinde başlayan ilişkileri devam ediyor." },
+{ name: "Serenay Sarıkaya", emoji: "👩‍🦱", period: "2019 – 2020", status: "rumor", note: "Dedikodular çıksa da resmiyet kazanmadı." },
+]
+},
+{
+id: 10, emoji: "🎵", name: "Sıla Şahin", cat: "müzisyen",
+age: 38, fame: "⭐⭐⭐⭐", isNew: false,
+tags: ["Şarkıcı", "Söz Yazarı"],
+bio: "1987 doğumlu Sıla, Türk müziğinin en özgün seslerinden biridir. 'Hep Sonra', 'Keşke' gibi dokunaklı şarkılarıyla gönüllere dokundu. Hem sözleri hem müziğiyle sektörde saygın bir yer edinmiştir.",
+info: { "Doğum Tarihi": "5 Şubat 1987", "Doğum Yeri": "Ankara", "Burç": "Kova", "Meslek": "Şarkıcı, Besteci" },
+relations: [
+{ name: "Ahmet Kural", emoji: "👨", period: "2012 – 2018", status: "ex", note: "Altı yıl süren ilişkileri ayrılıkla sona erdi." },
+]
+},
+{
+id: 11, emoji: "📸", name: "Fahriye Evcen", cat: "oyuncu",
+age: 37, fame: "⭐⭐⭐⭐⭐",
+tags: ["Oyuncu", "Model"],
+bio: "1986 doğumlu Fahriye Evcen, 'Bir Bulut Olsam', 'Karadayı' ve 'Cesur ve Güzel' gibi yapımlarla Türk dizilerinin vazgeçilmez yüzlerinden biri oldu.",
+info: { "Doğum Tarihi": "4 Haziran 1986", "Doğum Yeri": "Almanya", "Burç": "İkizler", "Meslek": "Oyuncu" },
+relations: [
+{ name: "Burak Özçivit", emoji: "👨", period: "2014 – Günümüz", status: "current", note: "2017 yılında evlendiler, Karan isimli oğulları var." },
+]
+},
+{
+id: 12, emoji: "🤳", name: "Borazon", cat: "fenomen",
+age: 26, fame: "⭐⭐⭐", isNew: true,
+tags: ["Streamer", "Gamer", "YouTuber"],
+bio: "2000'li yıllarda doğan Z kuşağının en popüler Türk stream'cilerinden biri. Oyun ve eğlence içerikleriyle milyonlarca takipçiye sahip.",
+info: { "Platform": "Twitch / YouTube", "Kategori": "Gaming", "Takipçi": "2M+" },
+relations: [
+{ name: "Elif K.", emoji: "👩", period: "2023 – Günümüz", status: "current", note: "İlişkisini canlı yayında duyurdu." },
+]
+},
+];
+ 
+// News & trending data
+const newsItems = [
+{ emoji: "💕", title: "Hande Erçel ve Kerem Bürsin tatilde görüntülendi", date: "2 saat önce" },
+{ emoji: "💔", title: "Ünlü çift sessiz sedasız ayrıldı!", date: "5 saat önce" },
+{ emoji: "💍", title: "Nişan haberi herkesi şok etti", date: "1 gün önce" },
+{ emoji: "❤️‍🔥", title: "Set arkadaşları aşka geldi mi?", date: "2 gün önce" },
+{ emoji: "💬", title: "Takipçileri merak etti: Beraberler mi?", date: "3 gün önce" },
+];
+ 
+const funFacts = [
+"Türkiye'de en çok ilişki haberi yapılan ünlü Hande Erçel'dir.",
+"Tarkan, kariyeri boyunca 10 milyonun üzerinde albüm sattı.",
+"Türk dizilerinin 'set aşkı' oranı dünya ortalamasının 3 katı! 💕",
+"Sen Çal Kapımı, 150'den fazla ülkede yayınlanan ilk Türk dizisidir.",
+];
+ 
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+let currentFilter = 'tümü';
+let currentSearch = '';
+ 
+// ═══════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ═══════════════════════════════════════════════
+function renderCelebs() {
+const grid = document.getElementById('celebs-grid');
+const filtered = celebs.filter(c => {
+const matchCat = currentFilter === 'tümü' || c.cat === currentFilter;
+const matchSearch = c.name.toLowerCase().includes(currentSearch.toLowerCase());
+return matchCat && matchSearch;
+});
+ 
+if (filtered.length === 0) {
+grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--gray);">
+<div style="font-size:3rem">🔍</div>
+<div style="margin-top:0.5rem">Sonuç bulunamadı</div>
+</div>`;
+return;
+}
+ 
+grid.innerHTML = filtered.map(c => `
+<div class="celeb-card" onclick="showProfile(${c.id})">
+<div class="card-img">
+${c.isNew ? '<div class="new-badge">Yeni</div>' : ''}
+<span style="font-size:4rem">${c.emoji}</span>
+<div class="card-overlay">Profili Gör →</div>
+</div>
+<div class="card-body">
+<div class="card-name">${c.name}</div>
+<div class="card-meta">
+<span class="card-cat">${catLabel(c.cat)}</span>
+<span class="card-heart">💕 ${c.relations.length} ilişki</span>
+</div>
+</div>
+</div>
+`).join('');
+}
+ 
+function catLabel(cat) {
+return { oyuncu:'Oyuncu', müzisyen:'Müzisyen', sporcu:'Sporcu', fenomen:'Fenomen' }[cat] || cat;
+}
+ 
+function renderTrending() {
+const medals = ['gold','','','',''];
+const top = [...celebs].sort((a,b) => b.fame.length - a.fame.length).slice(0,5);
+document.getElementById('trending-list').innerHTML = top.map((c,i) => `
+<div class="trending-item" onclick="showProfile(${c.id})">
+<div class="trend-num ${medals[i]}">${i+1}</div>
+<span class="trend-emoji">${c.emoji}</span>
+<div class="trend-info">
+<div class="trend-name">${c.name}</div>
+<div class="trend-sub">${catLabel(c.cat)} · ${c.fame}</div>
+</div>
+</div>
+`).join('');
+}
+ 
+function renderNews() {
+document.getElementById('couple-news').innerHTML = newsItems.map(n => `
+<div class="news-item">
+<span class="news-hearts">${n.emoji}</span>
+<div class="news-text">
+<div class="news-title">${n.title}</div>
+<div class="news-date">${n.date}</div>
+</div>
+</div>
+`).join('');
+}
+ 
+function renderFunFact() {
+const fact = funFacts[Math.floor(Math.random() * funFacts.length)];
+document.getElementById('fun-fact').textContent = fact;
+}
+ 
+// ═══════════════════════════════════════════════
+// PROFILE
+// ═══════════════════════════════════════════════
+function showProfile(id) {
+const c = celebs.find(x => x.id === id);
+if (!c) return;
+ 
+document.getElementById('p-avatar').textContent = c.emoji;
+document.getElementById('p-name').textContent = c.name;
+document.getElementById('p-rel-count').textContent = c.relations.length;
+document.getElementById('p-age').textContent = c.age;
+document.getElementById('p-fame').textContent = c.fame;
+document.getElementById('p-bio').textContent = c.bio;
+ 
+document.getElementById('p-tags').innerHTML = c.tags.map(t =>
+`<span class="profile-tag">${t}</span>`).join('');
+ 
+document.getElementById('p-info-grid').innerHTML = Object.entries(c.info).map(([k,v]) => `
+<div class="info-item">
+<div class="info-label">${k}</div>
+<div class="info-value">${v}</div>
+</div>
+`).join('');
+ 
+document.getElementById('p-relations').innerHTML = c.relations.map(r => `
+<div class="relation-item ${r.status === 'current' ? 'current' : ''}">
+<div class="relation-avatar">${r.emoji}</div>
+<div class="relation-info">
+<div class="relation-name">${r.name}</div>
+<div class="relation-period">📅 ${r.period}</div>
+<span class="relation-status status-${r.status}">
+${{current:'💚 Devam ediyor', ex:'💔 Eski', rumor:'🤔 Söylenti'}[r.status]}
+</span>
+<p style="font-size:0.8rem;color:#666;margin-top:0.4rem;line-height:1.5">${r.note}</p>
+</div>
+</div>
+`).join('');
+ 
+const currentRel = c.relations.find(r => r.status === 'current');
+document.getElementById('p-stats-sidebar').innerHTML = `
+<div style="display:flex;flex-direction:column;gap:0.8rem">
+<div style="padding:0.8rem;background:var(--pink-blush);border-radius:10px">
+<div style="font-size:0.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Mevcut Durum</div>
+<div style="font-size:1rem;font-weight:600;margin-top:0.3rem;color:var(--text)">
+${currentRel ? '💚 ' + currentRel.name + ' ile beraberler' : '🔓 Bekar'}
+</div>
+</div>
+<div style="padding:0.8rem;background:var(--pink-blush);border-radius:10px">
+<div style="font-size:0.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Toplam İlişki</div>
+<div style="font-size:2rem;font-weight:700;color:var(--pink-hot)">${c.relations.length}</div>
+</div>
+<div style="padding:0.8rem;background:var(--pink-blush);border-radius:10px">
+<div style="font-size:0.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px">Kategori</div>
+<div style="font-size:1rem;font-weight:600;margin-top:0.3rem;color:var(--text)">${catLabel(c.cat)}</div>
+</div>
+</div>
+`;
+ 
+const similar = celebs.filter(x => x.cat === c.cat && x.id !== c.id).slice(0,3);
+document.getElementById('p-similar').innerHTML = similar.map(s => `
+<div class="trending-item" onclick="showProfile(${s.id})">
+<span style="font-size:1.5rem">${s.emoji}</span>
+<div class="trend-info">
+<div class="trend-name">${s.name}</div>
+<div class="trend-sub">${s.fame}</div>
+</div>
+</div>
+`).join('');
+ 
+document.getElementById('home-page').style.display = 'none';
+document.getElementById('profile-page').style.display = 'block';
+window.scrollTo(0,0);
+}
+ 
+function showHome() {
+document.getElementById('home-page').style.display = 'block';
+document.getElementById('profile-page').style.display = 'none';
+window.scrollTo(0,0);
+}
+ 
+// ═══════════════════════════════════════════════
+// FILTER & SEARCH
+// ═══════════════════════════════════════════════
+function filterCat(cat, btn) {
+currentFilter = cat;
+// update tabs in main content
+document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+if (btn) btn.classList.add('active');
+renderCelebs();
+}
+ 
+function searchCelebs(val) {
+currentSearch = val;
+renderCelebs();
+}
+ 
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+renderCelebs();
+renderTrending();
+renderNews();
+renderFunFact();
+</script>
+</body>
+</html>
+
+--
+
+ 
+
+Saygılarımla / Best regards,
+
+.
+
+Emine Pehlivan 
+
+                                 
+Fleet Management-Fleet Operations Management                                      
+---------------------------------------
+
+Email-logo_2015_136x47px
+
+
+E: emine.pehlivan@ekol.com
+
+M: +90 506 564 3386
+
+P: +90 506 564 3386
